@@ -31,17 +31,22 @@ class BlogController extends Controller
         return $data;
     }
 
+    public function edit(blog $blog)
+    {
+        return $blog;
+    }
     public function update(Request $request, blog $blog)
     {
-        //
+        $data = $this->validate($request, [
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'body' => 'required',
+        ]);
+
+        $blog->update($data);
+        return $blog;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\blog  $blog
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(blog $blog)
     {
         //

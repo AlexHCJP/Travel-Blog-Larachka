@@ -35,7 +35,7 @@ Route::middleware(['api'])->group(function (){
     Route::get('home', 'APIController@home');
     Route::get('user/{user}', 'APIController@user');
 
-    Route::resource('/blog', 'BlogController')->except('create', 'edit', 'index');
+    Route::resource('/blog', 'BlogController')->except('create', 'index');
     Route::resource('/comment', 'CommentController')->except('create', 'edit', 'index', 'show');
     Route::resource('/city', 'CityController')->except('create', 'edit', 'index', 'store', 'destroy');
     Route::resource('/country', 'CountryController')->except('create', 'edit', 'store', 'destroy', 'update');
